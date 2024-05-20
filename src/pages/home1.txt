@@ -1,0 +1,35 @@
+import React ,  {useEffect, useState} from "react"
+
+interface users
+{
+  email: string
+  id: number
+  disabled: boolean
+  application: string
+  name: string
+  hashed_password: string
+  created_date: Date
+  role: string
+}
+
+export function Home() {
+  const [users, setUsers] =useState<users[]>([]);
+
+  useEffect ( () => {
+
+                      fetch(  'http://165.227.97.62:8000/CRUD/users/?skip=0&limit=100')
+                      .then((response) => response)
+                      .then((e) => e.json())
+                      //.then((e) => console.log(e) );
+                      .then ((e) => setUsers(e as users[]))
+                    },[]);
+                    return (
+                      <div className="Home">
+                        {users.map( (users) => (
+                        <li key = {users.id}>{ users.name} </li>
+                        ))}
+                      </div>
+                    )
+
+            
+}

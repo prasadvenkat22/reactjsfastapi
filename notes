@@ -1,0 +1,9 @@
+npm create vite@latest .
+npm i
+ npm i react-router-dom bootstrap react-bootstrap
+
+ npm i axios
+
+ npm run dev
+npm i react-router-dom react-icons styled-components@5.3.10
+
